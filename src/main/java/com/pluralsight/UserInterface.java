@@ -76,6 +76,9 @@ public class UserInterface {
         DealershipFileManager fileManager = new DealershipFileManager();
         dealership = fileManager.getDealership();
     }
+    private void displayVehicles(){
+
+    }
     public void processGetByPriceRequest(){
 
     }
