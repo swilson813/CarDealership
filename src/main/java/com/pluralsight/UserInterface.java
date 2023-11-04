@@ -1,6 +1,8 @@
 package com.pluralsight;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -30,31 +32,31 @@ public class UserInterface {
 
             switch (input) {
                 case "1":
-                    System.out.println();
+                    processGetByPriceRequest();
                     break;
                 case "2":
-                    System.out.println();
+                    processGetByMakeModelRequest();
                     break;
                 case "3":
-                    System.out.println();
+                    processGetByYearRequest();
                     break;
                 case "4":
-                    System.out.println();
+                    processGetByColorRequest();
                     break;
                 case "5":
-                    System.out.println();
+                   processGetByMileageRequest();
                     break;
                 case "6":
-                    System.out.println();
+                    processGetByVehicleTypeRequest();
                     break;
                 case "7":
-                    System.out.println();
+                    processGetAllVehicleRequest();
                     break;
                 case "8":
-                    System.out.println();
+                    processAddVehicleRequest();
                     break;
                 case "9":
-                    System.out.println();
+                    processRemoveVehicleRequest();
                     break;
                 case "0":
                     running = false;
@@ -64,6 +66,11 @@ public class UserInterface {
             }
         }
 
+    }
+    private void displayVehicle(List<Vehicle> listOfVehicles){
+        for (Vehicle vehicle: listOfVehicles){
+            System.out.println(vehicle);
+        }
     }
     private void init(){
         DealershipFileManager fileManager = new DealershipFileManager();
