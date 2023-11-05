@@ -24,9 +24,9 @@ public class UserInterface {
             System.out.println("5)Find vehicle mileage range ");
             System.out.println("6)Find vehicle type(car, truck, SUV, van) ");
             System.out.println("7)List ALL vehicles: ");
-            System.out.println("8)Add a vehicle: ");
-            System.out.println("9)Remove a vehicle: ");
-            System.out.println("0) Quit");
+            System.out.println("8)Add a vehicle ");
+            System.out.println("9)Remove a vehicle ");
+            System.out.println("99) Quit");
 
             String input = scanner.nextLine().trim();
 
@@ -68,6 +68,10 @@ public class UserInterface {
 
     }
     private void displayVehicle(List<Vehicle> listOfVehicles){
+
+       if (listOfVehicles.isEmpty()){
+           System.out.println("No vehicles found.");
+       }
         for (Vehicle vehicle: listOfVehicles){
             System.out.println(vehicle);
         }
@@ -76,11 +80,12 @@ public class UserInterface {
         DealershipFileManager fileManager = new DealershipFileManager();
         dealership = fileManager.getDealership();
     }
-    private void displayVehicles(){
+    public List<Vehicle> processGetByPriceRequest(){
+        List<Vehicle> vehiclesByPrice = processGetByPriceRequest();
+                //call the display vehicle method
+        displayVehicle(vehiclesByPrice);
 
-    }
-    public void processGetByPriceRequest(){
-
+        return vehiclesByPrice;
     }
     public void processGetByMakeModelRequest(){
 
@@ -98,7 +103,8 @@ public class UserInterface {
 
     }
     public void processGetAllVehicleRequest(){
-
+        List<Vehicle> allVehicles =  dealership.getAllVehicles();
+        displayVehicle(allVehicles);
     }
     public void processAddVehicleRequest(){
 

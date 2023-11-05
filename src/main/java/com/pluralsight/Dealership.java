@@ -3,7 +3,6 @@ package com.pluralsight;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Dealership {
    private String name;
@@ -71,6 +70,7 @@ public class Dealership {
         return ArrayList;
     }
     public List<Vehicle> getVehicleByMakeModel(String make, String model){
+
         return null;
     }
     public List<Vehicle> getVehicleByYear(String min, String max){
