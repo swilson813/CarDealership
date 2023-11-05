@@ -53,7 +53,7 @@ public class UserInterface {
                     processGetAllVehicleRequest();
                     break;
                 case "8":
-                    processAddVehicleRequest();
+                    processAddVehicleRequest(" ");
                     break;
                 case "9":
                     processRemoveVehicleRequest();
@@ -88,16 +88,21 @@ public class UserInterface {
         return vehiclesByPrice;
     }
     public void processGetByMakeModelRequest(){
-
+       // List<Vehicle> vehiclesByMakeModel = ;
+                //call the displayVehicles by make /model
+       // displayVehicle(vehiclesByMakeModel);
     }
     public void processGetByYearRequest(){
-
+       // List<Vehicle> vehiclesByYear = /* your logic here */
+      //  displayVehicle(vehiclesByYear);
     }
     public void processGetByColorRequest(){
 
     }
     public void processGetByMileageRequest(){
-
+       // List<Vehicle> vehiclesByMileage = /* insert logic*/;
+        // Call the displayVehicles method
+      //  displayVehicle(vehiclesByMileage);
     }
     public void processGetByVehicleTypeRequest(){
 
@@ -105,11 +110,26 @@ public class UserInterface {
     public void processGetAllVehicleRequest(){
         List<Vehicle> allVehicles =  dealership.getAllVehicles();
         displayVehicle(allVehicles);
-    }
-    public void processAddVehicleRequest(){
 
+        //Add/remove vehicles within this method
+        processAddVehicleRequest(allVehicles);
+        processRemoveVehicleRequest(allVehicles);
     }
+    public void processAddVehicleRequest(List<Vehicle> allVehicles){
+        Vehicle vehicle= new Vehicle();
+        listOfVehicles.add(newVehicle);
+        System.out.println("Vehicle added successfully. ");
+    }
+    boolean removed;
     public void processRemoveVehicleRequest() {
+        Vehicle vehicleToRemove = ;
+        //remove vehicles from list
+        boolean removed = listOfVehicles.remove(vehicleToRemove);
+        if (removed){
+            System.out.println("Vehicle removed successfully. ");
 
+        }else {
+            System.out.println("Vehicle not found or could not be removed successfully. ");
+        }
     }
 }

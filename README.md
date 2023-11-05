@@ -8,5 +8,8 @@
 ### MAIN MENU
 ![HERE](DisplayScreen.PNG)
 
+- Display Screen
 ![HERE](HomeScreen.PNG)
 
+-Errors in calculations 
+![HERE](Errors.PNG)
