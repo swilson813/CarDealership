@@ -47,7 +47,11 @@ public class DealershipFileManager {
         return dealership1;
     }
     public void saveDealership(Dealership dealership){
-
+        try {
+            BufferedWriter br = new BufferedWriter(new FileWriter("inventory.csv", true));
+        }catch (IOException e){
+            throw new RuntimeException(e);
+        }
 
     }
 }
