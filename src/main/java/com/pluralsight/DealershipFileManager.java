@@ -46,12 +46,26 @@ public class DealershipFileManager {
 
         return dealership1;
     }
-    public void saveDealership(Dealership dealership){
+
+    public void saveDealership(Dealership dealership) {
+        String dealershipName = String.format("%1s|%1s|%1s", dealership.getName(), dealership.getName(), dealership.getPhone());
         try {
-            BufferedWriter br = new BufferedWriter(new FileWriter("inventory.csv", true));
-        }catch (IOException e){
+            BufferedWriter nameWriter = new BufferedWriter(new FileWriter("inventory.csv"));
+            nameWriter.write(dealershipName + "\n");
+            nameWriter.close();
+            try {
+                BufferedWriter br = new BufferedWriter(new FileWriter("inventory.csv", true));
+                for (Vehicle s : dealership.getAllVehicles()) {
+                    String vehicleFormat = s.getVin() + "|" + s.getYear() + "|" + s.getMake() + "|" + s.getModel() + "|" + s.getVehicleType() + "|" + s.getColor() + "|" + s.getOdometer() + "|" + s.getPrice();
+                    nameWriter.write(vehicleFormat);
+                }
+                nameWriter.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
